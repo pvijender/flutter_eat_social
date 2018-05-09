@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_eat_social/model/post_model.dart';
 import 'package:flutter_eat_social/logic/display_icon.dart';
+import 'package:flutter_eat_social/logic/bottom_popup_menu.dart';
 
 class DisplayPosts extends StatefulWidget {
   @override
@@ -72,7 +73,7 @@ class _DisplayPostsState extends State<DisplayPosts> {
 
                             )
                         ),
-                        new Icon(Icons.more_horiz),
+                        new BottomPopupMenu(),
                       ],
                     ),
                   ),

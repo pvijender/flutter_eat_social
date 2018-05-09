@@ -17,11 +17,6 @@ class _EatSocialHomeState extends State<EatSocialHome>{
   Widget build(BuildContext context) {
     return new Scaffold(
       body: new DisplayPosts(),
-      floatingActionButton: new FloatingActionButton(
-        backgroundColor: Theme.of(context).accentColor,
-        child: new Icon(Icons.message),
-        onPressed: ()=>print("Open Chats"),
-      ),
     );
   }
 }
