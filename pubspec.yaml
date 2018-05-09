@@ -31,6 +31,15 @@ flutter:
     - images/1x/AD.png
     - images/2x/AD.png
     - images/3.5x/AD.png
+    - images/LIVE.png
+    - images/1x/LIVE.png
+    - images/2x/LIVE.png
+    - images/3.5x/LIVE.png
+    - images/Plan.png
+    - images/1x/Plan.png
+    - images/2x/Plan.png
+    - images/3.5x/Plan.png
+
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
