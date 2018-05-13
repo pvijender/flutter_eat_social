@@ -16,7 +16,16 @@ class _EatSocialHomeState extends State<EatSocialHome>{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      backgroundColor: Colors.grey,
       body: new DisplayPosts(),
+/*      bottomNavigationBar: new BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        fixedColor: Colors.blue,
+        items: [
+          new BottomNavigationBarItem(icon: new Icon(Icons.message), title: new Text("Posts"), backgroundColor: Colors.blue),
+          new BottomNavigationBarItem(icon: new Icon(Icons.event), title: new Text("Event")),
+          new BottomNavigationBarItem(icon: new Icon(Icons.people), title: new Text("Chat"))
+      ]),*/
     );
   }
 }
