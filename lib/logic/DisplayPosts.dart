@@ -54,6 +54,8 @@ class _DisplayPostsState extends State<DisplayPosts> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
                                 new display_icon(dummyData[i].post_status),
+                                //new ChoiceChip(label: null, selected: null)
+                                //new ChoiceChip(label: new Text('Light Blue')),
                               ],
                             ),
                           ),
@@ -115,14 +117,33 @@ class _DisplayPostsState extends State<DisplayPosts> {
 }
 
 class SecondScreen extends StatelessWidget {
+
+  void _tapDown(TapDownDetails details) {
+    debugPrint("tap Down");
+  }
+
+  void _tapUp(TapUpDetails details) {
+    debugPrint("tap Up");
+  }
+
+  void _panDown(DragDownDetails details) {
+    debugPrint("Drag Down");
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Container(
+      body: new GestureDetector(
+        //onTapDown: _tapDown,
+        //onTapUp: _tapUp,
+        onPanDown: _panDown,
+        //onPanDown: ()=>debugPrint("welcome"),
+        child: new Container(
           margin: const EdgeInsets.only(top: 20.0),
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
+
                 new Expanded(
                     child: new Container(
                       decoration: const BoxDecoration(
@@ -157,12 +178,16 @@ class SecondScreen extends StatelessWidget {
                 ),
                 new Divider(height: 10.0,color: Colors.blue,),
                 new Container(
+                  //color: Colors.blueGrey,
                   padding: const EdgeInsets.all(10.0),
                   child: new Row(
                     children: <Widget>[
                       new Image.asset('images/logo.png', width: 42.0, height: 42.0,),
+                      new Padding(padding: const EdgeInsets.only(left: 5.0),),
                       new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,),
+                      new Padding(padding: const EdgeInsets.only(left: 5.0),),
                       new Image.asset('images/plan_icon.png', width: 42.0, height: 42.0,),
+                      new Padding(padding: const EdgeInsets.only(left: 5.0),),
                       new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,)
                     ],
                   ),
@@ -177,6 +202,53 @@ class SecondScreen extends StatelessWidget {
           child: new Text('Go back!'),
         ),*/
       ),
+      ),
     );
   }
 }
+
+class ThirdScreen extends StatelessWidget {
+
+  void _tapDown(TapDownDetails details) {
+    debugPrint("tap Down");
+  }
+
+  void _tapUp(TapUpDetails details) {
+    debugPrint("tap Up");
+  }
+
+  void _panDown(DragDownDetails details) {
+    debugPrint("Drag Down");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      body: new CustomScrollView(
+        slivers: <Widget>[
+          const SliverAppBar(
+            pinned: true,
+            expandedHeight: 600.0,
+              flexibleSpace: const FlexibleSpaceBar(
+              title: const Text('Demo1'),
+            ),
+          ),
+
+
+        ],
+   /*     slivers: <Widget>[
+          const SliverAppBar(
+            pinned: true,
+            expandedHeight: 300.0,
+            flexibleSpace: const FlexibleSpaceBar(
+              title: const Text('Demo'),
+            ),
+          ),
+        ],*/
+    ),
+    );
+  }
+}
+
+
+

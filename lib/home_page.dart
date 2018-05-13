@@ -16,8 +16,31 @@ class _EatSocialHomeState extends State<EatSocialHome>{
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      backgroundColor: Colors.grey,
-      body: new DisplayPosts(),
+
+      body: new Column(
+        children: <Widget>[
+          new Expanded(child: new DisplayPosts()),
+          new Container(
+            padding: const EdgeInsets.all(10.0),
+            //color: Colors.blueGrey,
+            child: new Row(
+              children: <Widget>[
+                new Image.asset('images/logo.png', width: 42.0, height: 42.0,),
+                new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                new Image.asset('images/posts_icon.png', width: 42.0, height: 42.0,),
+                new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,),
+                new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,)
+            ],
+          ),
+          )
+
+        ],
+
+        ),
+
+
 /*      bottomNavigationBar: new BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         fixedColor: Colors.blue,
