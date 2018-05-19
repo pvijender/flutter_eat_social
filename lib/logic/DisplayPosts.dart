@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_eat_social/model/post_model.dart';
 import 'package:flutter_eat_social/logic/display_icon.dart';
 import 'package:flutter_eat_social/logic/bottom_popup_menu.dart';
+import 'package:flutter_eat_social/logic/contacts.dart';
 
 class DisplayPosts extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _DisplayPostsState extends State<DisplayPosts> {
         content: new Text("Clicking here will launch the bottom menu bar")
     );
 
-    //showDialog(context: context, child: alertDialog);
+    showDialog(context: context, child: alertDialog);
   }
 
   @override
@@ -116,7 +117,21 @@ class _DisplayPostsState extends State<DisplayPosts> {
   }
 }
 
-class SecondScreen extends StatelessWidget {
+class SecondScreen extends StatefulWidget {
+  @override
+  _SecondScreenState createState() => new _SecondScreenState();
+}
+
+class _SecondScreenState extends State<SecondScreen> {
+
+  void _showAlert() {
+    AlertDialog alertDialog = new AlertDialog(
+        content: new Text("Clicking here will launch the bottom menu bar")
+    );
+
+    showDialog(context: context, child: alertDialog);
+  }
+
 
   void _tapDown(TapDownDetails details) {
     debugPrint("tap Down");
@@ -139,44 +154,127 @@ class SecondScreen extends StatelessWidget {
         onPanDown: _panDown,
         //onPanDown: ()=>debugPrint("welcome"),
         child: new Container(
-          margin: const EdgeInsets.only(top: 20.0),
-          child: new Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
+            //margin: const EdgeInsets.only(top: 20.0),
 
-                new Expanded(
-                    child: new Container(
-                      decoration: const BoxDecoration(
-                          image: const DecorationImage(
-                              image: const AssetImage("images/coffee.png"),
-                              fit: BoxFit.fill
-                          )
-                      ),
-                      //child: new Image.asset('images/coffee.png'),
+            child: new Column(
+              //mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                  new Expanded(
+                      child:
+                      new ListView(
+                          children: <Widget>[
+                          new Container(
+                            color: Colors.green,
+                            child: new Image(image: AssetImage("images/coffee_temp.PNG")),
+
+                            ),
+
+                          new ListTile(
+                            leading: new Icon(Icons.photo_album),
+                            title: new Text('Album'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                          new ListTile(
+                            leading: new Icon(Icons.phone),
+                            title: new Text('Phone'),
+                          ),
+                      ],
                     ),
 
+                   /*   new Expanded(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              image: const DecorationImage(
+                                  image: const AssetImage("images/coffee.PNG"),
+                                  fit: BoxFit.fill
+                              )
+                          ),
+                          //child: new Image.asset('images/coffee.png'),
+                        ),
+                      ),*/
 
-                ),
-                new Container(
-                    margin: const EdgeInsets.only(top:20.0),
-                    child: new Text('Coffee in ten minutes3',
-                    textAlign: TextAlign.center,
-                    style: new TextStyle(fontSize: 20.0)),
-                ),
-                new Container(
-                    margin: const EdgeInsets.all(20.0),
-                    child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      new Icon(Icons.people),
-                      new Icon(Icons.watch_later),
-                      new Icon(Icons.location_on),
-                      new Icon(Icons.info),
-                      new Icon(Icons.message),
-                    ],
-                  )
-                ),
-                new Divider(height: 10.0,color: Colors.blue,),
+                     /* new Container(
+                        margin: const EdgeInsets.all(20.0),
+                        child: new Row(
+                          children: <Widget>[
+                            new Text('Coffee in ten minutes7',
+                              style: new TextStyle(fontSize: 20.0), textAlign: TextAlign.left,),
+                          ],
+                        ),
+
+                      ),
+
+
+                      new Container(
+                          margin: const EdgeInsets.all(20.0),
+                          child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              new Icon(Icons.people),
+                              new Icon(Icons.watch_later),
+                              new Icon(Icons.location_on),
+                              new Icon(Icons.info),
+                              new Icon(Icons.message),
+                              new InkWell(onTap: _showAlert,
+                                child: new Image.asset('images/join_icon.png'),
+                              ),
+                            ],
+                          )
+                      ),
+                      new Divider(height: 10.0,color: Colors.blue,),*/
+
+                  ),
                 new Container(
                   //color: Colors.blueGrey,
                   padding: const EdgeInsets.all(10.0),
@@ -188,64 +286,31 @@ class SecondScreen extends StatelessWidget {
                       new Padding(padding: const EdgeInsets.only(left: 5.0),),
                       new Image.asset('images/plan_icon.png', width: 42.0, height: 42.0,),
                       new Padding(padding: const EdgeInsets.only(left: 5.0),),
-                      new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,)
+                      new Image.asset('images/plan_icon.png', width: 42.0, height: 42.0,)
                     ],
                   ),
                 ),
-
-            ],
-          )
-        /*child: new RaisedButton(
+              ],
+            )
+          /*child: new RaisedButton(
           onPressed: () {
             Navigator.pop(context);
           },
           child: new Text('Go back!'),
         ),*/
-      ),
+        ),
       ),
     );
   }
 }
 
+
 class ThirdScreen extends StatelessWidget {
-
-  void _tapDown(TapDownDetails details) {
-    debugPrint("tap Down");
-  }
-
-  void _tapUp(TapUpDetails details) {
-    debugPrint("tap Up");
-  }
-
-  void _panDown(DragDownDetails details) {
-    debugPrint("Drag Down");
-  }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new CustomScrollView(
-        slivers: <Widget>[
-          const SliverAppBar(
-            pinned: true,
-            expandedHeight: 600.0,
-              flexibleSpace: const FlexibleSpaceBar(
-              title: const Text('Demo1'),
-            ),
-          ),
-
-
-        ],
-   /*     slivers: <Widget>[
-          const SliverAppBar(
-            pinned: true,
-            expandedHeight: 300.0,
-            flexibleSpace: const FlexibleSpaceBar(
-              title: const Text('Demo'),
-            ),
-          ),
-        ],*/
-    ),
+      body: new ContactsDemo(),
     );
   }
 }
