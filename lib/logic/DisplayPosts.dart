@@ -168,69 +168,135 @@ class _SecondScreenState extends State<SecondScreen> {
                             child: new Image(image: AssetImage("images/coffee_temp.PNG")),
 
                             ),
+                          new Container(
+                            margin: const EdgeInsets.all(20.0),
+                            child: new Row(
+                              children: <Widget>[
+                                new Text('Coffee in ten minutes7',
+                                  style: new TextStyle(fontSize: 20.0), textAlign: TextAlign.left,),
+                              ],
+                            ),
+
+                          ),
+
+
+                          new Container(
+                              margin: const EdgeInsets.all(20.0),
+                              child: new Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  new Icon(Icons.people),
+                                  new Icon(Icons.watch_later),
+                                  new Icon(Icons.location_on),
+                                  new Icon(Icons.info),
+                                  new Icon(Icons.message),
+                                  new InkWell(onTap: _showAlert,
+                                    child: new Image.asset('images/join_icon.png'),
+                                  ),
+                                ],
+                              )
+                          ),
+                          new Divider(height: 10.0,color: Colors.blue,),
 
                           new ListTile(
-                            leading: new Icon(Icons.photo_album),
-                            title: new Text('Album'),
+                            leading: new Icon(Icons.watch_later),
+                            title: new Row(
+                              children: <Widget>[
+                                new Container(
+                                child:new Image.asset('images/coffee_icon.PNG', height: 40.0,),
+                                ),
+                                new Container(
+                                  margin: EdgeInsets.all(10.0),
+                                  child:new Text("Coffee"),
+                                ),
+
+                              ],
+                            ),
+                            //Image.asset('images/join_icon.png'),
                           ),
                           new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
+                            leading: new Icon(Icons.people),
+                              title: new Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                new Chip(
+                                  avatar: new CircleAvatar(
+                                    backgroundColor: Colors.grey.shade300,
+                                    child: new CircleAvatar(
+                                      backgroundImage: new NetworkImage("https://images.pexels.com/photos/324658/pexels-photo-324658.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"),
+                                      radius: 16.0,
+                                    ),
+                                  ),
+                                  label: new Text('Arnie Debby'),
+                                ),
+                                new Padding(
+                                  padding: new EdgeInsets.all(10.0),
+                                ),
+                                new Chip(
+                                  avatar: new CircleAvatar(
+                                    backgroundColor: Colors.grey.shade300,
+                                    child: new CircleAvatar(
+                                    backgroundImage: new NetworkImage("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"),
+                                    radius: 16.0,
+                                    ),
+                                  ),
+                                  label: new Text('John Cairns'),
+                                ),
+                              ],
+                            ),
                           ),
                           new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
+                            leading: new Icon(Icons.watch_later),
+                            title: new Row(
+                              children: <Widget>[
+                                new Expanded(
+                                  child:new Container(
+                                    child:new Text("Today at 1:20 PM"),
+                                  ),
+                                ),
+                                new Chip(
+                                  backgroundColor: Colors.blue,
+                                  label: new Text('2 hr 20 min 30 sec', textAlign: TextAlign.center, style: new TextStyle(color: Colors.white),),
+                                ),
+
+                              ],
+                            ),
+                            //Image.asset('images/join_icon.png'),
                           ),
                           new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
+                            leading: new Icon(Icons.location_on),
+                            title: new Center(
+                                  child:new Chip(
+                                    shape: new RoundedRectangleBorder(
+                                      side: const BorderSide(width: 0.66, style: BorderStyle.solid, color: Colors.grey),
+                                      borderRadius: new BorderRadius.circular(10.0),
+                                    ),
+                                    backgroundColor: Colors.black87,
+                                    label: new Text('Suggest Places', textAlign: TextAlign.center, style: new TextStyle(color: Colors.white),),
+                                  ),
+                                ),
+
+                            //Image.asset('images/join_icon.png'),
                           ),
                           new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
+                            leading: new Icon(Icons.location_on),
+                            title: new Row(
+                              children: <Widget>[
+                                new Center(
+                                  child:new Chip(
+
+                                    label: new Text('Suggest Places1'),
+                                  ),
+                                ),
+
+                              ],
+                            ),
+                            //Image.asset('images/join_icon.png'),
                           ),
-                          new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
-                          ),
-                          new ListTile(
-                            leading: new Icon(Icons.phone),
-                            title: new Text('Phone'),
-                          ),
+
                       ],
                     ),
+
 
                    /*   new Expanded(
                         child: Container(
