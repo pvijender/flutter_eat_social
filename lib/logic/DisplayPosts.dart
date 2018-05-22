@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_eat_social/model/post_model.dart';
 import 'package:flutter_eat_social/logic/display_icon.dart';
+import 'package:flutter_eat_social/logic/display_icon_chip.dart';
 import 'package:flutter_eat_social/logic/bottom_popup_menu.dart';
 import 'package:flutter_eat_social/logic/contacts.dart';
 
@@ -44,23 +45,27 @@ class _DisplayPostsState extends State<DisplayPosts> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           new Container(
-                            color: Colors.grey.shade200,
+                            color: Colors.white,
                             padding: const EdgeInsets.all(8.0),
                             child: new Text(dummyData[i].post_msg,  style: new TextStyle(fontWeight: FontWeight.normal, fontSize: 16.0)),
                           ),
                           new Container(
-                            color: Colors.grey.shade200,
-                            padding: const EdgeInsets.only(right: 5.0, bottom: 5.0),
+                            //color: Colors.blue,
+                            margin: const EdgeInsets.only(right: 5.0, bottom: 5.0),
+                            //height: 30.0,
                             child: new Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
-                                new display_icon(dummyData[i].post_status),
+                                new display_icon_chip(dummyData[i].post_status),
+
                                 //new ChoiceChip(label: null, selected: null)
                                 //new ChoiceChip(label: new Text('Light Blue')),
                               ],
                             ),
                           ),
                           new Container(
+                            height: 50.0,
+                            color: Colors.grey.shade200,
                             padding: const EdgeInsets.all(10.0),
                             child: new Row(
                               children: <Widget>[
@@ -70,20 +75,20 @@ class _DisplayPostsState extends State<DisplayPosts> {
                                       children: <Widget>[
                                         new CircleAvatar(
                                           backgroundImage: new NetworkImage(dummyData[i].post_party_url_1),
-                                          radius: 16.0,
+                                          radius: 15.0,
                                         ),
                                         new Container(
                                           padding: const EdgeInsets.only(right: 5.0),
                                         ),
                                         new CircleAvatar(
-                                          radius: 16.0,
+                                          radius: 15.0,
                                           backgroundImage: new NetworkImage(dummyData[i].post_party_url_2),
                                         ),
                                         new Container(
                                           padding: const EdgeInsets.only(right: 5.0),
                                         ),
                                         new CircleAvatar(
-                                          radius: 16.0,
+                                          radius: 15.0,
                                           backgroundImage: new NetworkImage(dummyData[i].post_party_url_3),
                                         ),
                                       ],
@@ -126,7 +131,7 @@ class _SecondScreenState extends State<SecondScreen> {
 
   void _showAlert() {
     AlertDialog alertDialog = new AlertDialog(
-        content: new Text("Clicking here will launch the bottom menu bar")
+        content: new Text("Clicking here will allow to join the Group")
     );
 
     showDialog(context: context, child: alertDialog);
@@ -166,8 +171,41 @@ class _SecondScreenState extends State<SecondScreen> {
                           new Container(
                             color: Colors.green,
                             child: new Image(image: AssetImage("images/coffee_temp.PNG")),
-
                             ),
+
+                          /*new Stack(
+                            fit: StackFit.expand,
+                            children: <Widget>[
+                              Positioned(
+                                top: 340.0,
+                                left: 250.0,
+                                child: Icon(Icons.call, size: 50.0),
+                              ),
+                            ],
+
+                          ),*/
+
+
+                          /*new Stack(
+                            //alignment: const Alignment(0.2, 0.2),
+                            alignment: Alignment.topRight,
+                            children: [
+                              new Container(
+                                decoration: new BoxDecoration(
+                                  color: Colors.black45,
+                                ),
+                                margin: EdgeInsets.only(right:10.0),
+                                child: new Text(
+                                  'Mia B',
+                                  style: new TextStyle(
+                                    fontSize: 20.0,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),*/
                           new Container(
                             margin: const EdgeInsets.all(20.0),
                             child: new Row(
@@ -181,15 +219,15 @@ class _SecondScreenState extends State<SecondScreen> {
 
 
                           new Container(
-                              margin: const EdgeInsets.all(20.0),
+//                              margin: const EdgeInsets.all(20.0),
                               child: new Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: <Widget>[
-                                  new Icon(Icons.people),
-                                  new Icon(Icons.watch_later),
-                                  new Icon(Icons.location_on),
-                                  new Icon(Icons.info),
-                                  new Icon(Icons.message),
+                                  //new Icon(Icons.people),
+                                  //new Icon(Icons.watch_later),
+                                  //new Icon(Icons.location_on),
+                                  //new Icon(Icons.info),
+                                  //new Icon(Icons.message),
                                   new InkWell(onTap: _showAlert,
                                     child: new Image.asset('images/join_icon.png'),
                                   ),
@@ -206,6 +244,7 @@ class _SecondScreenState extends State<SecondScreen> {
                                 child:new Image.asset('images/coffee_icon.PNG', height: 40.0,),
                                 ),
                                 new Container(
+                                  padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
                                   margin: EdgeInsets.all(10.0),
                                   child:new Text("Coffee"),
                                 ),
@@ -251,6 +290,7 @@ class _SecondScreenState extends State<SecondScreen> {
                               children: <Widget>[
                                 new Expanded(
                                   child:new Container(
+                                    padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
                                     child:new Text("Today at 1:20 PM"),
                                   ),
                                 ),
@@ -279,20 +319,17 @@ class _SecondScreenState extends State<SecondScreen> {
                             //Image.asset('images/join_icon.png'),
                           ),
                           new ListTile(
-                            leading: new Icon(Icons.location_on),
-                            title: new Row(
-                              children: <Widget>[
-                                new Center(
-                                  child:new Chip(
-
-                                    label: new Text('Suggest Places1'),
-                                  ),
-                                ),
-
-                              ],
+                            leading: new Icon(Icons.info),
+                            title: new Container(
+                              padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
+                                child:new Text("Join me for an amazing birthday party!!! I am letting everyone plan with me but I will choose in ...",
+                                style: new TextStyle(color: Colors.grey, fontSize: 16.0)),
                             ),
                             //Image.asset('images/join_icon.png'),
                           ),
+
+
+
 
                       ],
                     ),
