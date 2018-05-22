@@ -109,12 +109,13 @@ class _DisplayPostsState extends State<DisplayPosts> {
                   ),
                 ],
               ),
-            )
+            ),
 
           ],
         ),
 
       ),
+
 
 
 

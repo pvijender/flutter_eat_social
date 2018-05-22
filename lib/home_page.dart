@@ -20,7 +20,29 @@ class _EatSocialHomeState extends State<EatSocialHome>{
 
       body: new Column(
         children: <Widget>[
-          new Expanded(child: new DisplayPosts()),
+          new Expanded(
+              child: new Stack(
+                alignment: const Alignment(1.0, 1.0),
+                children: <Widget>[
+                  new DisplayPosts(),
+                  new Container(
+                    margin: EdgeInsets.only(right:10.0),
+                    child: new FloatingActionButton(
+                        backgroundColor: Colors.white,
+
+                      shape: new RoundedRectangleBorder(
+                        side: const BorderSide(width: 0.66, style: BorderStyle.solid, color: Colors.grey),
+
+                        borderRadius: new BorderRadius.circular(5.0),
+                      ),
+                        child: new Image.asset("images/plan_fab_icon.PNG"),
+                        onPressed: null,),
+                  ),
+
+                ],
+                ),
+              ),
+
           new Card(
             color: Colors.grey.shade100,
             elevation: 0.4,
@@ -28,6 +50,11 @@ class _EatSocialHomeState extends State<EatSocialHome>{
             //padding: const EdgeInsets.all(10.0),
             //color: Colors.blueGrey,
             child: new Container(
+              decoration: BoxDecoration(
+                border: const Border(
+                  top: const BorderSide(width: 0.4, color: Colors.grey),
+                ),
+              ),
               padding: const EdgeInsets.all(10.0),
               child:  Row(
                 children: <Widget>[
@@ -43,11 +70,13 @@ class _EatSocialHomeState extends State<EatSocialHome>{
             ),
 
 
-          )
+          ),
+
 
         ],
 
         ),
+
 
 
 /*      bottomNavigationBar: new BottomNavigationBar(
@@ -58,6 +87,7 @@ class _EatSocialHomeState extends State<EatSocialHome>{
           new BottomNavigationBarItem(icon: new Icon(Icons.event), title: new Text("Event")),
           new BottomNavigationBarItem(icon: new Icon(Icons.people), title: new Text("Chat"))
       ]),*/
+    //new FloatingActionButton(onPressed: null),
     );
   }
 }
