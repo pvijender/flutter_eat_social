@@ -33,11 +33,65 @@ class _BottomPopupMenuState extends State<BottomPopupMenu> {
     return new Container(
       child: new IconButton(
         icon: new Icon(Icons.more_horiz),
-        onPressed: (){_showAlert();},
-        ),
+        onPressed: () {
+          /*showModalBottomSheet(context: context,
+              builder: (BuildContext context) => const _DemoDrawer());*/
+          showModalBottomSheet<void>(context: context, builder: (BuildContext context) {
+            return new Container(
+              height: 200.0,
+                child: new Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: new Column(
+                      children: <Widget>[
+                        const ListTile(
+                          leading: const Icon(Icons.event),
+                          title: const Text('Help Center'),
+                        ),
+                        const ListTile(
+                          leading: const Icon(Icons.people),
+                          title: const Text('User Guide'),
+                        ),
+                        const ListTile(
+                          leading: const Icon(Icons.feedback),
+                          title: const Text('Feedback'),
+                        ),
+                      ],
+                    ),
+
+
+                )
+            );
+          });
+        },
+      ),
     );
   }
 }
+
+// A drawer that pops up from the bottom of the screen.
+/*
+class _DemoDrawer extends StatelessWidget {
+  const _DemoDrawer();
+
+  @override
+  Widget build(BuildContext context) {
+    return new Drawer(
+      child: new Column(
+        children: const <Widget>[
+          const ListTile(
+            leading: const Icon(Icons.search),
+            title: const Text('Search'),
+          ),
+          const ListTile(
+            leading: const Icon(Icons.threed_rotation),
+            title: const Text('3D'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+*/
 
 
 

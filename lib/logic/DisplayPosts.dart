@@ -51,7 +51,7 @@ class _DisplayPostsState extends State<DisplayPosts> {
                           ),
                           new Container(
                             //color: Colors.blue,
-                            margin: const EdgeInsets.only(right: 5.0, bottom: 5.0),
+                            margin: const EdgeInsets.only(bottom: 5.0),
                             //height: 30.0,
                             child: new Row(
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -64,10 +64,11 @@ class _DisplayPostsState extends State<DisplayPosts> {
                             ),
                           ),
                           new Container(
-                            height: 50.0,
-                            color: Colors.grey.shade200,
-                            padding: const EdgeInsets.all(10.0),
+                            //height: 50.0,
+                            color: Colors.grey.shade100,
+                            padding: const EdgeInsets.only(left: 10.0),
                             child: new Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 new Expanded(
                                     child: new Row(
@@ -91,6 +92,15 @@ class _DisplayPostsState extends State<DisplayPosts> {
                                           radius: 15.0,
                                           backgroundImage: new NetworkImage(dummyData[i].post_party_url_3),
                                         ),
+                                        new Container(
+                                          padding: const EdgeInsets.only(right: 5.0),
+                                        ),
+                                        dummyData[i].post_status=="LIVE"? new CircleAvatar(
+                                          radius: 15.0,
+                                          backgroundColor: Colors.grey.shade800,
+                                          child: new Text("+4",  style: new TextStyle(color: Colors.white, fontSize: 12.0),),
+
+                                        ):new Text(""),
                                       ],
 
                                     )
@@ -229,13 +239,13 @@ class _SecondScreenState extends State<SecondScreen> {
                                   //new Icon(Icons.location_on),
                                   //new Icon(Icons.info),
                                   //new Icon(Icons.message),
-                                  new InkWell(onTap: _showAlert,
+                                  /*new InkWell(onTap: _showAlert,
                                     child: new Image.asset('images/join_icon.png'),
-                                  ),
+                                  ),*/
                                 ],
                               )
                           ),
-                          new Divider(height: 10.0,color: Colors.blue,),
+                          //new Divider(height: 10.0,color: Colors.blue,),
 
                           new ListTile(
                             leading: new Icon(Icons.watch_later),
@@ -297,7 +307,7 @@ class _SecondScreenState extends State<SecondScreen> {
                                 ),
                                 new Chip(
                                   backgroundColor: Colors.blue,
-                                  label: new Text('2 hr 20 min 30 sec', textAlign: TextAlign.center, style: new TextStyle(color: Colors.white),),
+                                  label: new Text('2 hr 20 min', textAlign: TextAlign.center, style: new TextStyle(color: Colors.white),),
                                 ),
 
                               ],

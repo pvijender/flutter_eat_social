@@ -38,6 +38,9 @@ flutter:
     - images/posts_icon.png
     - images/join_icon.png
     - images/chat_icon.png
+    - images/live_icon.png
+    - images/planned_icon.png
+    - images/ad_icon.png
     - images/1x/AD.png
     - images/2x/AD.png
     - images/3.5x/AD.png

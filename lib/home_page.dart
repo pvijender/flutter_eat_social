@@ -25,52 +25,87 @@ class _EatSocialHomeState extends State<EatSocialHome>{
                 alignment: const Alignment(1.0, 1.0),
                 children: <Widget>[
                   new DisplayPosts(),
-                  new Container(
-                    margin: EdgeInsets.only(right:10.0),
-                    child: new FloatingActionButton(
-                        backgroundColor: Colors.white,
+                  new Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      new Expanded(
+                        //margin: EdgeInsets.only(right:10.0, bottom: 10.0),
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            new Chip(
+                              backgroundColor: Colors.grey.shade800,
+                              label: new Text("FILTER", textAlign: TextAlign.center, style: new TextStyle(color: Colors.white, fontSize: 15.0)),
+                              avatar: new CircleAvatar(
+                                backgroundColor: Colors.grey.shade300,
+                                child: new Icon(Icons.filter_list, color: Colors.black,)
+                              ),
+                            )
+                          ],
+                        )
+                      ),
+                      new Container(
+                        margin: EdgeInsets.only(right:10.0, bottom: 10.0),
+                        child: new FloatingActionButton(
+                          //backgroundColor: Colors.white,
 
-                      shape: new RoundedRectangleBorder(
+/*                      shape: new RoundedRectangleBorder(
                         side: const BorderSide(width: 0.66, style: BorderStyle.solid, color: Colors.grey),
 
                         borderRadius: new BorderRadius.circular(5.0),
+                      ),*/
+                          backgroundColor: Colors.grey.shade800,
+                          child: new Icon(Icons.add_circle),
+                          onPressed: null,),
                       ),
-                        child: new Image.asset("images/plan_fab_icon.PNG"),
-                        onPressed: null,),
+                    ],
                   ),
 
+
                 ],
                 ),
               ),
 
-          new Card(
-            color: Colors.grey.shade100,
-            elevation: 0.4,
-            margin: EdgeInsets.only(top: 10.0, left: 0.0, right: 0.0, bottom: 0.0),
-            //padding: const EdgeInsets.all(10.0),
-            //color: Colors.blueGrey,
-            child: new Container(
+          new Container(
+              //color: Colors.grey.shade100,
+              //elevation: 0.4,
+              margin: EdgeInsets.only(left: 0.0, right: 0.0, bottom: 0.0),
               decoration: BoxDecoration(
-                border: const Border(
+                boxShadow: [
+                  new BoxShadow(
+                    color: Colors.grey.shade400,
+                    blurRadius: 0.3,
+                    spreadRadius: 0.6,
+                    //offset: Offset(1.0, 1.0),
+                  )
+                ],
+/*                border: const Border(
                   top: const BorderSide(width: 0.4, color: Colors.grey),
+                ),*/
+              ),
+              //padding: EdgeInsets.all(5.0),
+              //padding: const EdgeInsets.all(10.0),
+              //color: Colors.blueGrey,
+              child: new Container(
+                  margin: EdgeInsets.all(0.0),
+                 padding: EdgeInsets.only(left: 10.0, top: 5.0, right: 5.0, bottom: 5.0),
+                 color: Colors.white,
+                child:  Row(
+                  children: <Widget>[
+                    new Image.asset('images/logo.png', width: 42.0, height: 42.0,),
+                    new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                    new Image.asset('images/posts_icon.png', width: 42.0, height: 42.0,),
+                    new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                    new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,),
+                    new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                    new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,)
+                  ],
                 ),
               ),
-              padding: const EdgeInsets.all(10.0),
-              child:  Row(
-                children: <Widget>[
-                  new Image.asset('images/logo.png', width: 42.0, height: 42.0,),
-                  new Padding(padding: const EdgeInsets.only(left: 5.0),),
-                  new Image.asset('images/posts_icon.png', width: 42.0, height: 42.0,),
-                  new Padding(padding: const EdgeInsets.only(left: 5.0),),
-                  new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,),
-                  new Padding(padding: const EdgeInsets.only(left: 5.0),),
-                  new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,)
-                ],
-              ),
-            ),
 
 
           ),
+
 
 
         ],
