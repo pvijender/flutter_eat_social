@@ -4,6 +4,8 @@ import 'package:flutter_eat_social/logic/display_icon.dart';
 import 'package:flutter_eat_social/logic/display_icon_chip.dart';
 import 'package:flutter_eat_social/logic/bottom_popup_menu.dart';
 import 'package:flutter_eat_social/logic/contacts.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class DisplayPosts extends StatefulWidget {
   @override
@@ -23,9 +25,15 @@ class _DisplayPostsState extends State<DisplayPosts> {
 
   @override
   Widget build(BuildContext context) {
-    return new ListView.builder(
-      itemCount: dummyData.length,
+    return new StreamBuilder(
+        stream: Firestore.instance.collection('events').snapshots(),
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) return const Text('Loading...');
+
+      return new ListView.builder(
+      itemCount: snapshot.data.documents.length,
       itemBuilder: (context, i)=> new GestureDetector(
+
         onTap: (){
           Navigator.push(
             context,
@@ -47,7 +55,7 @@ class _DisplayPostsState extends State<DisplayPosts> {
                           new Container(
                             color: Colors.white,
                             padding: const EdgeInsets.all(8.0),
-                            child: new Text(dummyData[i].post_msg,  style: new TextStyle(fontWeight: FontWeight.normal, fontSize: 16.0)),
+                            child: new Text(snapshot.data.documents[i]['event_name'],  style: new TextStyle(fontWeight: FontWeight.normal, fontSize: 16.0)),
                           ),
                           new Container(
                             //color: Colors.blue,
@@ -130,6 +138,26 @@ class _DisplayPostsState extends State<DisplayPosts> {
 
 
     );
+
+
+
+
+
+          /*return new ListView.builder(
+              itemCount: snapshot.data.documents.length,
+              padding: const EdgeInsets.only(top: 10.0),
+              itemExtent: 25.0,
+              itemBuilder: (context, index) {
+                DocumentSnapshot ds = snapshot.data.documents[index];
+                return new Text(" ${ds['event_name']} ${ds['event_status']}");
+              }
+          );*/
+
+
+
+        });
+
+
   }
 }
 

@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "66055569437",
+    "firebase_url": "https://eat-inc.firebaseio.com",
+    "project_id": "eat-inc",
+    "storage_bucket": "eat-inc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:66055569437:android:9454a827a6e0d8a4",
+        "android_client_info": {
+          "package_name": "com.yourcompany.fluttereatsocial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "66055569437-kuietou47nhvh6n439k0ujd2647gm0q7.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "66055569437-tbev143og72kfcfp5ipfkq9u7fbk0jgt.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "66055569437-tbev143og72kfcfp5ipfkq9u7fbk0jgt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyUFe2IKv-aZAve_3wgJYOcgeTVLUx4Ow"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_eat_social/home_page.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() => runApp(new MyApp());
 

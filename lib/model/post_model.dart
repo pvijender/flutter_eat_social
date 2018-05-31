@@ -8,6 +8,7 @@ class PostModel {
 
   PostModel({this.post_msg, this.post_status, this.post_parties_count, this.post_party_url_1, this.post_party_url_2, this.post_party_url_3});
 }
+
 List<PostModel> dummyData=[
   new PostModel(post_msg: "Going for coffee in 10 minutes, individuals or groups can join",
       post_status: "PLAN",
