@@ -52,7 +52,7 @@ class _DisplayPostsState extends State<DisplayPosts> {
                       child: new Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          new Container(
+                          new Container( //comment
                             color: Colors.white,
                             padding: const EdgeInsets.all(8.0),
                             child: new Text(snapshot.data.documents[i]['event_name'],  style: new TextStyle(fontWeight: FontWeight.normal, fontSize: 16.0)),
@@ -65,6 +65,10 @@ class _DisplayPostsState extends State<DisplayPosts> {
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
                                 new display_icon_chip(dummyData[i].post_status),
+
+
+
+
 
                                 //new ChoiceChip(label: null, selected: null)
                                 //new ChoiceChip(label: new Text('Light Blue')),
