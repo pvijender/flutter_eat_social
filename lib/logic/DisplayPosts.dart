@@ -5,15 +5,21 @@ import 'package:flutter_eat_social/logic/display_icon_chip.dart';
 import 'package:flutter_eat_social/logic/bottom_popup_menu.dart';
 import 'package:flutter_eat_social/logic/contacts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_eat_social/logic/customized_circle_avatar_widget.dart';
+
+
 
 
 class DisplayPosts extends StatefulWidget {
+
+
+
   @override
   _DisplayPostsState createState() => new _DisplayPostsState();
 }
 
 class _DisplayPostsState extends State<DisplayPosts> {
-
+  Firestore db =  Firestore.instance;
 
   void _showAlert() {
     AlertDialog alertDialog = new AlertDialog(
@@ -25,6 +31,7 @@ class _DisplayPostsState extends State<DisplayPosts> {
 
   @override
   Widget build(BuildContext context) {
+
     return new StreamBuilder(
         stream: Firestore.instance.collection('events').snapshots(),
         builder: (context, snapshot) {
@@ -64,12 +71,7 @@ class _DisplayPostsState extends State<DisplayPosts> {
                             child: new Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: <Widget>[
-                                new display_icon_chip(dummyData[i].post_status),
-
-
-
-
-
+                                new display_icon_chip(snapshot.data.documents[i]['event_status']),
                                 //new ChoiceChip(label: null, selected: null)
                                 //new ChoiceChip(label: new Text('Light Blue')),
                               ],
@@ -86,33 +88,29 @@ class _DisplayPostsState extends State<DisplayPosts> {
                                     child: new Row(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: <Widget>[
+                                        //new CustomizedCircleAvatar(snapshot.data.documents[i]['event_member_1']),
+                                        //if(snapshot.data.documents[i]['event_member_1']!=null) {new CustomizedCircleAvatar(snapshot.data.documents[i]['event_member_1']},
+                                        snapshot.data.documents[i]['event_member_1']!=null? new CustomizedCircleAvatar(snapshot.data.documents[i]['event_member_1']):new Text(""),
+                                        snapshot.data.documents[i]['event_member_1']!=null? new Container(padding: const EdgeInsets.only(right: 5.0),):new Text(""),
+                                        snapshot.data.documents[i]['event_member_2']!=null? new CustomizedCircleAvatar(snapshot.data.documents[i]['event_member_2']):new Text(""),
+                                        snapshot.data.documents[i]['event_member_2']!=null? new Container(padding: const EdgeInsets.only(right: 5.0),):new Text(""),
+                                        snapshot.data.documents[i]['event_member_3']!=null? new CustomizedCircleAvatar(snapshot.data.documents[i]['event_member_3']):new Text(""),
+                                        snapshot.data.documents[i]['event_member_3']!=null? new Container(padding: const EdgeInsets.only(right: 5.0),):new Text(""),
+                                        snapshot.data.documents[i]['event_member_4']!=null? new CircleAvatar(radius: 15.0, backgroundColor: Colors.grey.shade800, child: new Text("+1",  style: new TextStyle(color: Colors.white, fontSize: 12.0),),):new Text(""),
+                                        /*
                                         new CircleAvatar(
+                                          radius: 15.0,
                                           backgroundImage: new NetworkImage(dummyData[i].post_party_url_1),
-                                          radius: 15.0,
                                         ),
                                         new Container(
                                           padding: const EdgeInsets.only(right: 5.0),
-                                        ),
-                                        new CircleAvatar(
-                                          radius: 15.0,
-                                          backgroundImage: new NetworkImage(dummyData[i].post_party_url_2),
-                                        ),
-                                        new Container(
-                                          padding: const EdgeInsets.only(right: 5.0),
-                                        ),
-                                        new CircleAvatar(
-                                          radius: 15.0,
-                                          backgroundImage: new NetworkImage(dummyData[i].post_party_url_3),
-                                        ),
-                                        new Container(
-                                          padding: const EdgeInsets.only(right: 5.0),
-                                        ),
-                                        dummyData[i].post_status=="LIVE"? new CircleAvatar(
+                                        ),*/
+                                        /*snapshot.data.documents[i]['event_status']=="LIVE"? new CircleAvatar(
                                           radius: 15.0,
                                           backgroundColor: Colors.grey.shade800,
                                           child: new Text("+4",  style: new TextStyle(color: Colors.white, fontSize: 12.0),),
 
-                                        ):new Text(""),
+                                        ):new Text(""),*/
                                       ],
 
                                     )

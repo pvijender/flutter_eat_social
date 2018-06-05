@@ -7,7 +7,6 @@ class display_icon_chip extends StatelessWidget {
     this.post_status=paramval;
   }
 
-
   @override
   Widget build(BuildContext context) {
     if(post_status=="AD"){
@@ -20,8 +19,11 @@ class display_icon_chip extends StatelessWidget {
       );*/
       return new Image(image: AssetImage("images/planned_icon.png"));
     }
-    else{
+    else if(post_status=="LIVE"){
       return new Image(image: AssetImage("images/live_icon.png"));
+    }
+    else{
+      return new Image(image: AssetImage(""));
     }
 
 
