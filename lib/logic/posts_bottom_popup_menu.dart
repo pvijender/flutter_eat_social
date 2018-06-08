@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class BottomPopupMenu extends StatefulWidget {
+class PostsBottomPopupMenu extends StatefulWidget {
   @override
-  _BottomPopupMenuState createState() => new _BottomPopupMenuState();
+  _PostsBottomPopupMenuState createState() => new _PostsBottomPopupMenuState();
 }
 
-class _BottomPopupMenuState extends State<BottomPopupMenu> {
+class _PostsBottomPopupMenuState extends State<PostsBottomPopupMenu> {
   int _count=0;
 
   _toggleFavorite() {
@@ -16,13 +16,13 @@ class _BottomPopupMenuState extends State<BottomPopupMenu> {
     });*/
 
     return new AlertDialog(
-        title: new Text('Rewind and remember'),
+      title: new Text('Rewind and remember'),
     );
   }
 
   void _showAlert(){
     AlertDialog alertDialog = new AlertDialog(
-      content: new Text("Clicking here will launch the bottom menu bar")
+        content: new Text("Clicking here will launch the bottom menu bar")
     );
 
     showDialog(context: context, child: alertDialog);
@@ -32,31 +32,31 @@ class _BottomPopupMenuState extends State<BottomPopupMenu> {
   Widget build(BuildContext context) {
     return new Container(
       child: new IconButton(
-        icon: new Icon(Icons.more_horiz),
+        icon: new Icon(Icons.more_vert),
         onPressed: () {
           /*showModalBottomSheet(context: context,
               builder: (BuildContext context) => const _DemoDrawer());*/
           showModalBottomSheet<void>(context: context, builder: (BuildContext context) {
             return new Container(
-              height: 200.0,
+                height: 200.0,
                 child: new Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: new Column(
-                      children: <Widget>[
-                        const ListTile(
-                          leading: const Icon(Icons.event),
-                          title: const Text('Request to Join'),
-                        ),
-                        const ListTile(
-                          leading: const Icon(Icons.event),
-                          title: const Text('Send a message'),
-                        ),
-                        const ListTile(
-                          leading: const Icon(Icons.event),
-                          title: const Text('Report Abuse'),
-                        ),
-                      ],
-                    ),
+                  padding: const EdgeInsets.all(10.0),
+                  child: new Column(
+                    children: <Widget>[
+                      const ListTile(
+                        leading: const Icon(Icons.event),
+                        title: const Text('Help Center'),
+                      ),
+                      const ListTile(
+                        leading: const Icon(Icons.people),
+                        title: const Text('User Guide'),
+                      ),
+                      const ListTile(
+                        leading: const Icon(Icons.feedback),
+                        title: const Text('Feedback'),
+                      ),
+                    ],
+                  ),
 
 
                 )

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_eat_social/logic/DisplayPosts.dart';
+import 'package:flutter_eat_social/logic/posts_bottom_popup_menu.dart';
 
 class EatSocialHome extends StatefulWidget {
   @override
@@ -92,13 +93,24 @@ class _EatSocialHomeState extends State<EatSocialHome>{
                  color: Colors.white,
                 child:  Row(
                   children: <Widget>[
-                    new Image.asset('images/logo.png', width: 42.0, height: 42.0,),
-                    new Padding(padding: const EdgeInsets.only(left: 5.0),),
-                    new Image.asset('images/posts_icon.png', width: 42.0, height: 42.0,),
-                    new Padding(padding: const EdgeInsets.only(left: 5.0),),
-                    new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,),
-                    new Padding(padding: const EdgeInsets.only(left: 5.0),),
-                    new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,)
+                    new Expanded(
+                      child: new Row(
+                        children: <Widget>[
+                          new Image.asset('images/logo.png', width: 42.0, height: 42.0,),
+                          new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                          new Image.asset('images/posts_icon.png', width: 42.0, height: 42.0,),
+                          new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                          new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,),
+                          new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                          new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,)
+                        ],
+                      ),
+                    ),
+                    new Padding(
+                        padding: const EdgeInsets.only(right:10.0),
+                        //child: new Icon(Icons.more_vert),
+                        child: new PostsBottomPopupMenu(),
+                    ),
                   ],
                 ),
               ),
