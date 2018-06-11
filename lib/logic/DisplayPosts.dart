@@ -229,6 +229,10 @@ class _SecondScreenState extends State<SecondScreen> {
         //onTapUp: _tapUp,
         onPanDown: _panDown,
         //onPanDown: ()=>debugPrint("welcome"),
+
+
+
+
         child: new Container(
             //margin: const EdgeInsets.only(top: 20.0),
 
@@ -243,40 +247,6 @@ class _SecondScreenState extends State<SecondScreen> {
                             color: Colors.green,
                             child: new Image(image: AssetImage("images/coffee_temp.PNG")),
                             ),
-
-                          /*new Stack(
-                            fit: StackFit.expand,
-                            children: <Widget>[
-                              Positioned(
-                                top: 340.0,
-                                left: 250.0,
-                                child: Icon(Icons.call, size: 50.0),
-                              ),
-                            ],
-
-                          ),*/
-
-
-                          /*new Stack(
-                            //alignment: const Alignment(0.2, 0.2),
-                            alignment: Alignment.topRight,
-                            children: [
-                              new Container(
-                                decoration: new BoxDecoration(
-                                  color: Colors.black45,
-                                ),
-                                margin: EdgeInsets.only(right:10.0),
-                                child: new Text(
-                                  'Mia B',
-                                  style: new TextStyle(
-                                    fontSize: 20.0,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),*/
                           new Container(
                             margin: const EdgeInsets.only(top: 10.0),
                             alignment: Alignment.centerRight,
@@ -398,54 +368,8 @@ class _SecondScreenState extends State<SecondScreen> {
                             //Image.asset('images/join_icon.png'),
                           ),
 
-
-
-
                       ],
                     ),
-
-
-                   /*   new Expanded(
-                        child: Container(
-                          decoration: const BoxDecoration(
-                              image: const DecorationImage(
-                                  image: const AssetImage("images/coffee.PNG"),
-                                  fit: BoxFit.fill
-                              )
-                          ),
-                          //child: new Image.asset('images/coffee.png'),
-                        ),
-                      ),*/
-
-                     /* new Container(
-                        margin: const EdgeInsets.all(20.0),
-                        child: new Row(
-                          children: <Widget>[
-                            new Text('Coffee in ten minutes7',
-                              style: new TextStyle(fontSize: 20.0), textAlign: TextAlign.left,),
-                          ],
-                        ),
-
-                      ),
-
-
-                      new Container(
-                          margin: const EdgeInsets.all(20.0),
-                          child: new Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: <Widget>[
-                              new Icon(Icons.people),
-                              new Icon(Icons.watch_later),
-                              new Icon(Icons.location_on),
-                              new Icon(Icons.info),
-                              new Icon(Icons.message),
-                              new InkWell(onTap: _showAlert,
-                                child: new Image.asset('images/join_icon.png'),
-                              ),
-                            ],
-                          )
-                      ),
-                      new Divider(height: 10.0,color: Colors.blue,),*/
 
                   ),
                   new Container(
@@ -512,17 +436,6 @@ class _SecondScreenState extends State<SecondScreen> {
         ),*/
         ),
       ),
-    );
-  }
-}
-
-
-class ThirdScreen extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new ContactsDemo(),
     );
   }
 }

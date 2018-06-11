@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:66055569437:android:9454a827a6e0d8a4",
         "android_client_info": {
-          "package_name": "com.yourcompany.fluttereatsocial"
+          "package_name": "com.eat.social"
         }
       },
       "oauth_client": [
