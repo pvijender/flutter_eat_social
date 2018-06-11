@@ -6,6 +6,7 @@ import 'package:flutter_eat_social/logic/bottom_popup_menu.dart';
 import 'package:flutter_eat_social/logic/contacts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_eat_social/logic/customized_circle_avatar_widget.dart';
+import 'package:flutter_eat_social/logic/posts_bottom_popup_menu.dart';
 
 
 
@@ -44,25 +45,44 @@ class _DisplayPostsState extends State<DisplayPosts> {
         onTap: (){
           Navigator.push(
             context,
-            new MaterialPageRoute(builder: (context) => new SecondScreen()),
+            new MaterialPageRoute(builder: (context) => new SecondScreen(
+              eventTitle: snapshot.data.documents[i]['event_name'],
+              eventStatus: snapshot.data.documents[i]['event_status'],)),
           );
         },
         child: new Column(
           children: <Widget>[
 
             new Container(
-              padding: const EdgeInsets.all(5.0),
+              padding: const EdgeInsets.only(left:1.0, right: 1.0),
               child: new Row(
                 children: [
                   new Expanded(
                     child: new Card(
-                      child: new Column(
+                      child: new Container(
+                        decoration: BoxDecoration(
+                          border: const Border(
+                            top: const BorderSide(width: 0.4, color: Colors.grey)
+                          )
+                          /*boxShadow: [
+                            new BoxShadow(
+                              //color: Colors.grey.shade400,
+                              blurRadius: 0.3,
+                              spreadRadius: 0.6,
+                              //offset: Offset(1.0, 1.0),
+                            )
+                          ],*/
+/*                border: const Border(
+                  top: const BorderSide(width: 0.4, color: Colors.grey),
+                ),*/
+                        ),
+                        child: new Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           new Container( //comment
                             color: Colors.white,
                             padding: const EdgeInsets.all(8.0),
-                            child: new Text(snapshot.data.documents[i]['event_name'],  style: new TextStyle(fontWeight: FontWeight.normal, fontSize: 16.0)),
+                            child: new Text(snapshot.data.documents[i]['event_name'],  style: new TextStyle(fontWeight: FontWeight.normal, fontSize: 18.0)),
                           ),
                           new Container(
                             //color: Colors.blue,
@@ -124,6 +144,8 @@ class _DisplayPostsState extends State<DisplayPosts> {
                       ),
                     ),
 
+                    ),
+
 
 
                   ),
@@ -164,6 +186,9 @@ class _DisplayPostsState extends State<DisplayPosts> {
 }
 
 class SecondScreen extends StatefulWidget {
+  final String eventTitle, eventStatus;
+  SecondScreen({Key key, this.eventTitle, this.eventStatus}):super(key: key);
+
   @override
   _SecondScreenState createState() => new _SecondScreenState();
 }
@@ -177,6 +202,11 @@ class _SecondScreenState extends State<SecondScreen> {
 
     showDialog(context: context, child: alertDialog);
   }
+
+  void _gotoPreviousScreen() {
+    Navigator.pop(context);
+  }
+
 
 
   void _tapDown(TapDownDetails details) {
@@ -248,14 +278,13 @@ class _SecondScreenState extends State<SecondScreen> {
                             ],
                           ),*/
                           new Container(
+                            margin: const EdgeInsets.only(top: 10.0),
+                            alignment: Alignment.centerRight,
+                            child: new display_icon_chip("${widget.eventStatus}"),
+                          ),
+                          new Container(
                             margin: const EdgeInsets.all(20.0),
-                            child: new Row(
-                              children: <Widget>[
-                                new Text('Coffee in ten minutes7',
-                                  style: new TextStyle(fontSize: 20.0), textAlign: TextAlign.left,),
-                              ],
-                            ),
-
+                            child: new Text("${widget.eventTitle}", style: new TextStyle(fontSize: 20.0), textAlign: TextAlign.left,),
                           ),
 
 
@@ -364,7 +393,7 @@ class _SecondScreenState extends State<SecondScreen> {
                             title: new Container(
                               padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
                                 child:new Text("Join me for an amazing birthday party!!! I am letting everyone plan with me but I will choose in ...",
-                                style: new TextStyle(color: Colors.grey, fontSize: 16.0)),
+                                style: new TextStyle(color: Colors.grey.shade800, fontSize: 16.0)),
                             ),
                             //Image.asset('images/join_icon.png'),
                           ),
@@ -419,21 +448,60 @@ class _SecondScreenState extends State<SecondScreen> {
                       new Divider(height: 10.0,color: Colors.blue,),*/
 
                   ),
-                new Container(
-                  //color: Colors.blueGrey,
-                  padding: const EdgeInsets.all(10.0),
-                  child: new Row(
-                    children: <Widget>[
-                      new Image.asset('images/logo.png', width: 42.0, height: 42.0,),
-                      new Padding(padding: const EdgeInsets.only(left: 5.0),),
-                      new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,),
-                      new Padding(padding: const EdgeInsets.only(left: 5.0),),
-                      new Image.asset('images/plan_icon.png', width: 42.0, height: 42.0,),
-                      new Padding(padding: const EdgeInsets.only(left: 5.0),),
-                      new Image.asset('images/plan_icon.png', width: 42.0, height: 42.0,)
-                    ],
+                  new Container(
+                    //color: Colors.grey.shade100,
+                    //elevation: 0.4,
+                    margin: EdgeInsets.only(left: 0.0, right: 0.0, bottom: 0.0),
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        new BoxShadow(
+                          color: Colors.grey.shade400,
+                          blurRadius: 0.3,
+                          spreadRadius: 0.6,
+                          //offset: Offset(1.0, 1.0),
+                        )
+                      ],
+/*                border: const Border(
+                  top: const BorderSide(width: 0.4, color: Colors.grey),
+                ),*/
+                    ),
+                    //padding: EdgeInsets.all(5.0),
+                    //padding: const EdgeInsets.all(10.0),
+                    //color: Colors.blueGrey,
+                    child: new Container(
+                      margin: EdgeInsets.all(0.0),
+                      padding: EdgeInsets.only(left: 10.0, top: 5.0, bottom: 5.0),
+                      color: Colors.white,
+                      child:  Row(
+                        children: <Widget>[
+                          new Expanded(
+                            child: new Row(
+                              children: <Widget>[
+                                new InkWell(
+                                  onTap: _gotoPreviousScreen,
+                                  //child: new Image.asset('images/logo.png', width: 42.0, height: 42.0,),
+                                  child: new Icon(Icons.arrow_back),
+                                ),
+                                new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                                new Image.asset('images/posts_icon.png', width: 42.0, height: 42.0,),
+                                new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                                new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,),
+                                new Padding(padding: const EdgeInsets.only(left: 5.0),),
+                                new Image.asset('images/other_icon.png', width: 42.0, height: 42.0,)
+                              ],
+                            ),
+                          ),
+                          new Padding(
+                            padding: const EdgeInsets.only(right:1.0),
+                            //child: new Icon(Icons.more_vert),
+                            child: new PostsBottomPopupMenu(),
+                          ),
+                        ],
+                      ),
+                    ),
+
+
                   ),
-                ),
               ],
             )
           /*child: new RaisedButton(

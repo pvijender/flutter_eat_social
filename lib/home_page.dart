@@ -89,7 +89,7 @@ class _EatSocialHomeState extends State<EatSocialHome>{
               //color: Colors.blueGrey,
               child: new Container(
                   margin: EdgeInsets.all(0.0),
-                 padding: EdgeInsets.only(left: 10.0, top: 5.0, right: 5.0, bottom: 5.0),
+                 padding: EdgeInsets.only(left: 10.0, top: 5.0, bottom: 5.0),
                  color: Colors.white,
                 child:  Row(
                   children: <Widget>[
@@ -107,7 +107,7 @@ class _EatSocialHomeState extends State<EatSocialHome>{
                       ),
                     ),
                     new Padding(
-                        padding: const EdgeInsets.only(right:10.0),
+                        padding: const EdgeInsets.only(right:1.0),
                         //child: new Icon(Icons.more_vert),
                         child: new PostsBottomPopupMenu(),
                     ),
