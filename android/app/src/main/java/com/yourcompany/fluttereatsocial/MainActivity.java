@@ -1,4 +1,4 @@
-package com.yourcompany.fluttereatsocial;
+package com.eat.social;
 
 import android.os.Bundle;
 

@@ -383,7 +383,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.flutterEatSocial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eat.social;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -407,8 +407,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Flutter",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.yourcompany.flutterEatSocial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eat.social;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
