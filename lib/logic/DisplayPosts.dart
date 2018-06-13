@@ -224,7 +224,28 @@ class _SecondScreenState extends State<SecondScreen> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new GestureDetector(
+      /*appBar: AppBar(
+        title: Text("Welcome"),
+      ),*/
+      body: CustomScrollView(
+        slivers: <Widget>[
+          SliverAppBar(
+            title: Text("welcome"),
+            floating: true,
+            pinned: true,
+            automaticallyImplyLeading: false,
+            expandedHeight: 250.0,
+            flexibleSpace: FlexibleSpaceBar(
+              background: Image(
+                image: AssetImage("images/coffee_temp.PNG"),
+                fit: BoxFit.fill,
+              ),
+
+            ),
+          ),
+        ],
+      ),
+      /*body: new GestureDetector(
         //onTapDown: _tapDown,
         //onTapUp: _tapUp,
         onPanDown: _panDown,
@@ -268,9 +289,9 @@ class _SecondScreenState extends State<SecondScreen> {
                                   //new Icon(Icons.location_on),
                                   //new Icon(Icons.info),
                                   //new Icon(Icons.message),
-                                  /*new InkWell(onTap: _showAlert,
+                                  *//*new InkWell(onTap: _showAlert,
                                     child: new Image.asset('images/join_icon.png'),
-                                  ),*/
+                                  ),*//*
                                 ],
                               )
                           ),
@@ -385,9 +406,9 @@ class _SecondScreenState extends State<SecondScreen> {
                           //offset: Offset(1.0, 1.0),
                         )
                       ],
-/*                border: const Border(
+*//*                border: const Border(
                   top: const BorderSide(width: 0.4, color: Colors.grey),
-                ),*/
+                ),*//*
                     ),
                     //padding: EdgeInsets.all(5.0),
                     //padding: const EdgeInsets.all(10.0),
@@ -428,14 +449,14 @@ class _SecondScreenState extends State<SecondScreen> {
                   ),
               ],
             )
-          /*child: new RaisedButton(
+          *//*child: new RaisedButton(
           onPressed: () {
             Navigator.pop(context);
           },
           child: new Text('Go back!'),
-        ),*/
+        ),*//*
         ),
-      ),
+      ),*/
     );
   }
 }
