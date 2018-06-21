@@ -47,10 +47,14 @@ class _DisplayPostsState extends State<DisplayPosts> {
             context,
             //new MaterialPageRoute(builder: (context) => new SecondScreen(
             new MaterialPageRoute(builder: (context) => new SecondScreen(
-              eventTitle: snapshot.data.documents[i]['event_name'],
+              eventName: snapshot.data.documents[i]['event_name'],
+              eventDescription: snapshot.data.documents[i]['event_description'],
+              eventActivates: snapshot.data.documents[i]['event_activates'],
+              eventMembers: snapshot.data.documents[i]['members'],
               eventStatus: snapshot.data.documents[i]['event_status'],
-              eventSchedule: snapshot.data.documents[i]['members']['member_name'],
-              map: snapshot.data.documents[i]['members'])),
+              eventTime: snapshot.data.documents[i]['event_time'],
+              eventLocation: snapshot.data.documents[i]['event_location'],
+)),
           );
         },
         child: new Column(
@@ -189,12 +193,19 @@ class _DisplayPostsState extends State<DisplayPosts> {
 }
 
 class SecondScreen extends StatefulWidget {
-  final String eventTitle, eventStatus, eventSchedule;
-  final Map<dynamic, dynamic> map;
-  String test="member_name";
+  final String eventName, eventDescription, eventActivates, eventStatus, eventLocation;
+  final Map<dynamic, dynamic> eventTime;
+  final List<dynamic> list, eventMembers;
 
 
-  SecondScreen({Key key, this.eventTitle, this.eventStatus, this.eventSchedule, this.map}):super(key: key);
+  SecondScreen({Key key,
+    this.eventName,
+    this.eventDescription,
+    this.eventActivates,
+    this.eventMembers,
+    this.eventStatus,
+    this.eventTime,
+    this.eventLocation}):super(key: key);
 
   @override
   _SecondScreenState createState() => new _SecondScreenState();
@@ -214,8 +225,7 @@ class _SecondScreenState extends State<SecondScreen> {
     Navigator.pop(context);
   }
 
-
-
+/*
   void _tapDown(TapDownDetails details) {
     debugPrint("tap Down");
   }
@@ -227,6 +237,7 @@ class _SecondScreenState extends State<SecondScreen> {
   void _panDown(DragDownDetails details) {
     debugPrint("Drag Down");
   }
+*/
 
   @override
   Widget build(BuildContext context) {
@@ -236,8 +247,6 @@ class _SecondScreenState extends State<SecondScreen> {
             child: new Column(
               //mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-
-
                 new Expanded(
                   child:
                   new ListView(
@@ -253,8 +262,7 @@ class _SecondScreenState extends State<SecondScreen> {
                       ),
                       new Container(
                         margin: const EdgeInsets.all(20.0),
-                        child: new Text("${widget.map['${widget.test}']}", style: new TextStyle(fontSize: 20.0), textAlign: TextAlign.left,),
-                        //child: new Text("${widget.eventTitle}", style: new TextStyle(fontSize: 20.0), textAlign: TextAlign.left,),
+                        child: new Text("${widget.eventName}", style: new TextStyle(fontSize: 20.0), textAlign: TextAlign.left,),
                       ),
 
 
@@ -302,11 +310,11 @@ class _SecondScreenState extends State<SecondScreen> {
                               avatar: new CircleAvatar(
                                 backgroundColor: Colors.grey.shade300,
                                 child: new CircleAvatar(
-                                  backgroundImage: new NetworkImage("https://images.pexels.com/photos/324658/pexels-photo-324658.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"),
+                                  backgroundImage: new NetworkImage("${widget.eventMembers[0]['member_dp']}"),
                                   radius: 16.0,
                                 ),
                               ),
-                              label: new Text('Arnie Debby'),
+                              label: new Text("${widget.eventMembers[0]['member_name']}"),
                             ),
                             new Padding(
                               padding: new EdgeInsets.all(10.0),
@@ -331,7 +339,7 @@ class _SecondScreenState extends State<SecondScreen> {
                             new Expanded(
                               child:new Container(
                                 padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-                                child:new Text("${widget.eventSchedule}"),
+                                child:new Text("${widget.eventTime['event_scheduled']}"),
                               ),
                             ),
                             new Chip(
@@ -352,7 +360,7 @@ class _SecondScreenState extends State<SecondScreen> {
                               borderRadius: new BorderRadius.circular(10.0),
                             ),
                             backgroundColor: Colors.black87,
-                            label: new Text('Suggest Places', textAlign: TextAlign.center, style: new TextStyle(color: Colors.white),),
+                            label: new Text("${widget.eventLocation}", textAlign: TextAlign.center, style: new TextStyle(color: Colors.white),),
                           ),
                         ),
 
@@ -362,7 +370,7 @@ class _SecondScreenState extends State<SecondScreen> {
                         leading: new Icon(Icons.info),
                         title: new Container(
                           padding: const EdgeInsets.only(top: 20.0, bottom: 20.0),
-                          child:new Text("Join me for an amazing birthday party!!! I am letting everyone plan with me but I will choose in ...",
+                          child:new Text("${widget.eventDescription}",
                               style: new TextStyle(color: Colors.grey.shade800, fontSize: 16.0)),
                         ),
                         //Image.asset('images/join_icon.png'),
