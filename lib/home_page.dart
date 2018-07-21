@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_eat_social/logic/DisplayPosts.dart';
 import 'package:flutter_eat_social/logic/posts_bottom_popup_menu.dart';
-
+//code check
 class EatSocialHome extends StatefulWidget {
   @override
   _EatSocialHomeState createState() => new _EatSocialHomeState();

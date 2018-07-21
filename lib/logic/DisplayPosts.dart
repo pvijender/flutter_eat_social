@@ -225,6 +225,7 @@ class _SecondScreenState extends State<SecondScreen> {
     Navigator.pop(context);
   }
 
+
 /*
   void _tapDown(TapDownDetails details) {
     debugPrint("tap Down");
@@ -323,12 +324,15 @@ class _SecondScreenState extends State<SecondScreen> {
                               avatar: new CircleAvatar(
                                 backgroundColor: Colors.grey.shade300,
                                 child: new CircleAvatar(
-                                  backgroundImage: new NetworkImage("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"),
+                                  //backgroundImage: new NetworkImage("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"),
+                                  backgroundImage: new NetworkImage("${widget.eventMembers[1]['member_dp']}"),
                                   radius: 16.0,
                                 ),
                               ),
-                              label: new Text('John Cairns'),
+                              //label: new Text('John Cairns'),
+                              label: new Text("${widget.eventMembers[1]['member_name']}"),
                             ),
+                            //new display_user_list("${widget.eventMembers[1]['member_dp']}", "${widget.eventMembers.length}"),
                           ],
                         ),
                       ),
@@ -354,14 +358,17 @@ class _SecondScreenState extends State<SecondScreen> {
                       new ListTile(
                         leading: new Icon(Icons.location_on),
                         title: new Center(
-                          child:new Chip(
+                          child: new Image.network("${widget.eventLocation}")
+/*                          new Chip(
                             shape: new RoundedRectangleBorder(
                               side: const BorderSide(width: 0.66, style: BorderStyle.solid, color: Colors.grey),
                               borderRadius: new BorderRadius.circular(10.0),
                             ),
-                            backgroundColor: Colors.black87,
-                            label: new Text("${widget.eventLocation}", textAlign: TextAlign.center, style: new TextStyle(color: Colors.white),),
-                          ),
+                            //backgroundColor: Colors.black87,
+                            //label: new Text("${widget.eventLocation}", textAlign: TextAlign.center, style: new TextStyle(color: Colors.white),),
+                            //new Image.network(staticMapUri.toString()),
+                            label: new Image.network("${widget.eventLocation}"),
+                          ),*/
                         ),
 
                         //Image.asset('images/join_icon.png'),
